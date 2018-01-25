@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Record {
+public class Record {//klasa zawiera dane pojedynczego wpisu do bazy danych
     private double price;
     private double finalPrice;
     private String productName;
@@ -93,7 +93,7 @@ public class Record {
                         .add("name",shopName))
                     .add("products",factory.createArrayBuilder((JsonArray) ja)))
                 .build();
-
+        System.out.println(value.get("shop"));
         return value;
     }
 

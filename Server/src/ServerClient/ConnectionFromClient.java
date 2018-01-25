@@ -22,7 +22,7 @@ public class ConnectionFromClient {
         super();
     }
 
-    public void send(byte[] imageArray, int steering) {
+    public void send(byte[] imageArray, int steering) {//wysylanie wiadomosci przez klienta
 
         byte[] message = imageArray;
 
@@ -45,17 +45,9 @@ public class ConnectionFromClient {
 
             socketOutputStream.write(message);
 
-            /*
-            //sluchanie odpowiedzi z serwera:
-            byte[] serverMessage = null;
-            DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
-            serverMessage = dataInputStream.readAllBytes();
 
-            if(serverMessage.length>0){
-                JSONObject serverProductList = JsonCoder.arrayToJson(serverMessage);//przetworzenie odpowiedzi serwera na obiekt json
-            }
 
-            */
+
             socket.close();
 
         } catch (IOException e) {

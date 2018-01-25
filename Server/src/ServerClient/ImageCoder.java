@@ -4,18 +4,7 @@ import java.io.*;
 import java.util.Base64;
 
 public class ImageCoder {
-    public static String main(String[] args) {
-        String imagePath = "C:\\Users\\user\\Desktop\\imgtest\\img1.jpg";
-        System.out.println("=================Encoder Image to Base 64!=================");
-        byte[] imageData = encoder(imagePath);
-        System.out.println("Base64ImageString = " +imageData);
 
-        System.out.println("=================Decoder Base64ImageString to Image!=================");
-        decoder(imageData);
-
-        System.out.println("DONE!");
-        return imagePath;
-    }
 
     public static byte[] encoder(String imagePath) {
 
@@ -48,13 +37,13 @@ public class ImageCoder {
         }
         return pathFile;
     }
-    public static String decoder(byte[] imageByteArray) {
+    public static String decoder(byte[] imageByteArray) {//funkcja dekoduje byte[] na zdjecie i zwraca sciezke do zdjecia
 
         String pathFile = "C:\\Users\\user\\Desktop\\imgtest\\"+System.currentTimeMillis()+".jpg";
 
 
         try (FileOutputStream imageOutFile = new FileOutputStream(pathFile)) {
-            // Converting a Base64 String into Image byte array
+
             imageOutFile.write(imageByteArray);
         } catch (FileNotFoundException e) {
             System.out.println("Image not found" + e);

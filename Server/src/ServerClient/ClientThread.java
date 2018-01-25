@@ -41,11 +41,17 @@ public class ClientThread extends Thread {
                         String filePath = ImageCoder.decoder(message);
                         System.out.println("zdjecie");
                         System.out.println("DONE!");
-                        //obrobka tesseractem
-                        Tesseract tess = new Tesseract();
-                        String outFile = filePath.substring(0,filePath.length()-3);
-                        tess.getContent(filePath,outFile);
 
+                        Tesseract tess = new Tesseract();//odczytywanie paragonu poprzez tesseracta
+                        String outFile = filePath.substring(0,filePath.length()-4);
+                        File fileAfterRead = tess.getContent(filePath,outFile);
+
+                        System.out.println(fileAfterRead.canRead());
+                        outFile+=".txt";
+
+
+                        ReadFile reader = new ReadFile();
+                        reader.readFile(outFile);
                         break;
                     }
                 case 2://warunek dla pojedynczego rekordu wpisanego recznie

@@ -8,14 +8,19 @@ import java.util.ArrayList;
 public class ReadFile {
     public static void main(String[] args){
         ReadFile reader = new ReadFile();
-        reader.readFile();
+        //reader.readFile();
     }
 
-    public Record readFile(){
+    public Record readFile(String filePath){//odczytywanie pliku powstalego dzieki tesseractowi
         ArrayList<Record> products = new ArrayList<Record>();
         Record finalRecord = new Record();
 
-        String file = "C:\\Users\\user\\Desktop\\imgtest\\out.txt";
+
+        String file = filePath;//"C:\\Users\\user\\Desktop\\imgtest\\out2.txt";
+        file = "C:\\Users\\user\\Desktop\\imgtest\\1516879458440.txt";//czytanie konkretnego pliku tekstowego bedacego wynikiem odczytu zdjecia
+
+
+
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
 
@@ -43,7 +48,7 @@ public class ReadFile {
                     extractPrice(line);
                 }
 
-                //System.out.println(line);
+                System.out.println(line);
             }
         }catch(IOException e){
             e.printStackTrace();
@@ -54,7 +59,7 @@ public class ReadFile {
         }*/
         return finalRecord;
     }
-    public String extractName(String line){
+    public String extractName(String line){//pozyskiwanie nazwy produktu
         String result = new String();
         for(int i = 0 ; i <line.length();i++){
             if(line.charAt(i) == ','){
