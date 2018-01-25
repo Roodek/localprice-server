@@ -6,20 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReadFile {
-    public static void main(String[] args){
-        ReadFile reader = new ReadFile();
-        //reader.readFile();
-    }
+
 
     public Record readFile(String filePath){//odczytywanie pliku powstalego dzieki tesseractowi
         ArrayList<Record> products = new ArrayList<Record>();
         Record finalRecord = new Record();
 
 
-        String file = filePath;//"C:\\Users\\user\\Desktop\\imgtest\\out2.txt";
-        //file = "C:\\Users\\user\\Desktop\\imgtest\\1516879458440.txt";//czytanie konkretnego pliku tekstowego bedacego wynikiem odczytu zdjecia
-
-
+        String file = filePath;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -40,15 +34,11 @@ public class ReadFile {
                     System.out.println("koniec czytania");
                     break;
                 }
-                if(read == true){
+                if(read == true){//gdy parametr read przyjmuje true czytanae sa produkt z paragonu
                     products.add(new Record(extractName(line),extractPrice(line)[0],extractPrice(line)[1],shopName,shopAddres));
-                    //System.out.println(line);
-                    //System.out.println(extractName(line));
-                    //System.out.println(extractPrice(line));
 
                 }
 
-                //System.out.println(line);
             }
         }catch(IOException e){
             e.printStackTrace();

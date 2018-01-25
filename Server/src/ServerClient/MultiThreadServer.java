@@ -22,7 +22,7 @@ public class MultiThreadServer {
         int portNumber = 2222;
         if (args.length < 1) {
             System.out
-                    .println("Usage: java MultiThreadChatServer <portNumber>\n"
+                    .println("Usage: java MultiThreadServer <portNumber>\n"
                             + "Now using port number=" + portNumber);
         } else {
             portNumber = Integer.valueOf(args[0]).intValue();

@@ -49,11 +49,13 @@ public class Record {//klasa zawiera dane pojedynczego wpisu do bazy danych
 
     public void setName(String name){this.productName = name;}
 
-    public  void show(){
-        System.out.println(productName);
-        System.out.println(price);
-        System.out.println(shopName);
-        System.out.println(addres);
+    public  void show(){//wypisuje dane w obiekcie
+        System.out.println("nazwa produktu " +productName);
+        System.out.println("cena: "+price);
+        System.out.println("cena finalna: "+finalPrice);
+        System.out.println("iosc: "+ammount);
+        System.out.println("nazwa sklepu: "+shopName);
+        System.out.println("adres: "+addres);
 
     }
 
@@ -64,7 +66,7 @@ public class Record {//klasa zawiera dane pojedynczego wpisu do bazy danych
         addres = jsonObject.getString("shopLocation");
         //show();
     }
-    public JSONObject RecordToJson(Record record){
+    public JSONObject RecordToJson(Record record){//tworzy obiekt JSON z obiektu typu rekord
         JSONObject jsonObject = new JSONObject();
         jsonObject.append("shopName",shopName);
         jsonObject.append("productName",productName);
@@ -73,7 +75,7 @@ public class Record {//klasa zawiera dane pojedynczego wpisu do bazy danych
 
         return jsonObject;
     }
-    public JsonObject createJsonReceipt(){
+    public JsonObject createJsonReceipt(){//tworzenie obiektu Json o konstrukcji paragonu
         JSONArray ja = new JSONArray();
         JSONObject jo = new JSONObject();
 
@@ -99,25 +101,3 @@ public class Record {//klasa zawiera dane pojedynczego wpisu do bazy danych
 
 
 }
-/*
-"receipt":{
-        "date":"data z paragonu",
-        "shop":{
-            "address":"adres sklepu",
-            "name":"nazwa sklepu"
-            },
-        "produtcts":[
-            {
-            "name":"mleko",
-            "price":"1.99",
-            "ammount":"3"
-            },
-            {
-            "name":"ser",
-            "price":"6.47",
-            "ammount":"0.27"
-            }
-            ]
-        }
-        }
-        */

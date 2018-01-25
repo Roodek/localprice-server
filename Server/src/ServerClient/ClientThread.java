@@ -24,9 +24,7 @@ public class ClientThread extends Thread {
         ClientThread[] threads = this.threads;
 
         try {
-      /*
-       * Create input and output streams for this client.
-       */
+            //tworzenie stramow odczytu i wpisu dla klienta
             is = new DataInputStream(clientSocket.getInputStream());
             os = new PrintStream(clientSocket.getOutputStream());
             int length;
@@ -69,19 +67,14 @@ public class ClientThread extends Thread {
                         break;
                     }
             }
-      /*
-       * Clean up. Set the current thread variable to null so that a new client
-       * could be accepted by the server.
-       */
+            //wyzeruj thread klienta
             for (int i = 0; i < maxClientsCount; i++) {
                 if (threads[i] == this) {
                     threads[i] = null;
                 }
             }
 
-      /*
-       * Close the output stream, close the input stream, close the socket.
-       */
+            //zamknij streamy
             is.close();
             os.close();
             clientSocket.close();

@@ -11,7 +11,7 @@ public class Tesseract {
         try {
             System.out.println("tesseract started");
             final Process process = Runtime.getRuntime().exec(
-                    dosCommand + " " + filePath + " " + outPath);
+                    dosCommand + " " + filePath + " " + outPath);//wywolanie funkcji w cmd = oruchomienie aplikacji
             process.waitFor();
             System.out.println("tesseract completed");
         } catch (IOException e) {
@@ -21,7 +21,7 @@ public class Tesseract {
         }
 
         //outPath+="txt";
-        System.out.println(outPath+".txt");
+        //System.out.println(outPath+".txt");
         File outputFile = new File(outPath+".txt");
 
         return outputFile;
