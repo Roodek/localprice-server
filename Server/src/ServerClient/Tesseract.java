@@ -9,18 +9,21 @@ public class Tesseract {
     public File getContent(String filePath, String outPath){
         final String dosCommand = "D:\\Tesseract-OCR\\tesseract";
         try {
-            System.out.println("1");
+            System.out.println("tesseract started");
             final Process process = Runtime.getRuntime().exec(
                     dosCommand + " " + filePath + " " + outPath);
-            System.out.println("3");
+            process.waitFor();
+            System.out.println("tesseract completed");
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         //outPath+="txt";
         System.out.println(outPath+".txt");
         File outputFile = new File(outPath+".txt");
-        System.out.println(outputFile.canRead());
+
         return outputFile;
     }
 

@@ -17,7 +17,7 @@ public class ReadFile {
 
 
         String file = filePath;//"C:\\Users\\user\\Desktop\\imgtest\\out2.txt";
-        file = "C:\\Users\\user\\Desktop\\imgtest\\1516879458440.txt";//czytanie konkretnego pliku tekstowego bedacego wynikiem odczytu zdjecia
+        //file = "C:\\Users\\user\\Desktop\\imgtest\\1516879458440.txt";//czytanie konkretnego pliku tekstowego bedacego wynikiem odczytu zdjecia
 
 
 
@@ -30,7 +30,7 @@ public class ReadFile {
 
             while ((line = br.readLine()) != null) {
                 if(line.contains("PARAGON FISKALNY")){
-                    System.out.println("jest");
+
                     read = true;
                     continue;
                 }
@@ -42,21 +42,21 @@ public class ReadFile {
                 }
                 if(read == true){
                     products.add(new Record(extractName(line),extractPrice(line)[0],extractPrice(line)[1],shopName,shopAddres));
-                    System.out.println(line);
+                    //System.out.println(line);
                     //System.out.println(extractName(line));
                     //System.out.println(extractPrice(line));
-                    extractPrice(line);
+
                 }
 
-                System.out.println(line);
+                //System.out.println(line);
             }
         }catch(IOException e){
             e.printStackTrace();
         }
-        /*
+
         for (Record i : products){
             i.show();
-        }*/
+        }
         return finalRecord;
     }
     public String extractName(String line){//pozyskiwanie nazwy produktu

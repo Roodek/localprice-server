@@ -46,7 +46,7 @@ public class ClientThread extends Thread {
                         String outFile = filePath.substring(0,filePath.length()-4);
                         File fileAfterRead = tess.getContent(filePath,outFile);
 
-                        System.out.println(fileAfterRead.canRead());
+
                         outFile+=".txt";
 
 
